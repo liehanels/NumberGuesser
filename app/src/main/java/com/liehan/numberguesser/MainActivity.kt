@@ -22,10 +22,12 @@ class MainActivity : AppCompatActivity() {
             insets
         } //end of ViewCompat
 
-        //create a random number
+        //code starts here
+
+        // create a random number between 1 and 10
         val randomNumber = Random.nextInt(1, 11)
 
-        //connect tge backend to the frontend elements
+        //connect the backend to the frontend elements
         val userGuess = findViewById<EditText>(R.id.edtUserGuess)
         val tvAnswer = findViewById<TextView>(R.id.tvAnswer)
         val guessButton = findViewById<Button>(R.id.btnGuess)
