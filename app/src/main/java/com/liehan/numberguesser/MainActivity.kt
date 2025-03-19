@@ -24,16 +24,19 @@ class MainActivity : AppCompatActivity() {
 
         //code starts here
 
-        // create a random number between 1 and 10
-        val randomNumber = Random.nextInt(1, 11)
-
         //connect the backend to the frontend elements
         val userGuess = findViewById<EditText>(R.id.edtUserGuess)
         val tvAnswer = findViewById<TextView>(R.id.tvAnswer)
         val guessButton = findViewById<Button>(R.id.btnGuess)
+        //creates a variable to count the number of guesses
+        var count: Int = 0
 
         //creates the button listener or click action
         guessButton.setOnClickListener {
+
+            // create a random number between 1 and 10
+            val randomNumber = Random.nextInt(1, 11)
+
             //get the user guess from the element and saves it into a variable
             var guessNumberString = userGuess.text.toString()
             //creates an empty integer variable
@@ -44,12 +47,16 @@ class MainActivity : AppCompatActivity() {
                     //if yes, converts the guess to an integer
                     guessNumberInt = guessNumberString.toInt()
                     //check guess against random number
-                    if (guessNumberInt == randomNumber) {
+                    if (guessNumberInt == randomNumber && count < 5) {
                         //if yes, displays a toast message
-                        Toast.makeText(this, "You guessed correctly", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "You guessed correctly", Toast.LENGTH_LONG).show()
+                    } else if (count >= 5){
+                        Toast.makeText(this, "You have reached the maximum number of guesses", Toast.LENGTH_LONG).show()
                     } else {
                         //if no, displays a toast message
-                        Toast.makeText(this, "You guessed incorrectly", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "You guessed incorrectly", Toast.LENGTH_LONG).show()
+                        //increments the count by 1
+                        count++
                     }
                     //sets the tvAnswer to the random number if the guess was a number
                     tvAnswer.text = randomNumber.toString()
