@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val userGuess = findViewById<EditText>(R.id.edtUserGuess)
         val tvAnswer = findViewById<TextView>(R.id.tvAnswer)
         val guessButton = findViewById<Button>(R.id.btnGuess)
+
         //creates a variable to count the number of guesses
         var count: Int = 0
 
@@ -35,11 +36,16 @@ class MainActivity : AppCompatActivity() {
         guessButton.setOnClickListener {
 
             // create a random number between 1 and 10
+            //AI Assisted/Generated code from ChatGPT/CoPilot
+            //Prompt - Write me kotlin code to generate a random number between 1 and 10
             val randomNumber = Random.nextInt(1, 11)
 
             //get the user guess from the element and saves it into a variable
             var guessNumberString = userGuess.text.toString()
             //creates an empty integer variable
+
+            //Website Referenced Code
+            //(link)
             var guessNumberInt: Int
             when {
                 //checks if the guess is a number
